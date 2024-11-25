@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mascotas SYSTEM "animalFileValidator.dtd">
+<mascotas>
+    <mascota id="a001" >
+        <nombre>Thor</nombre>
+        <ficha_veterinario>
+            <animal sexo="M" tipo_de_pelo="llarg">
+                <nombre>Thor</nombre>
+                <xip>123456789</xip>
+                <data_nacimento>12-04-2021</data_nacimento>
+                <pedigree>true</pedigree>
+                <peso>28</peso>
+                <color>Negro</color>
+                <foto>thor.jpg</foto>
+            </animal>
+            <proprietario>
+                <nombre_proprietario>Laura</nombre_proprietario>
+                <cognom>Hernández</cognom>
+                <direccion>Avenida de la Paz 45, Madrid</direccion>
+                <email>laura.hernandez@gmail.com</email>
+                <telefon>612345678</telefon>
+            </proprietario>
+        </ficha_veterinario>
+        <vacunacion>
+            <vacuna>
+                <nombre_vacuna>Rabia</nombre_vacuna>
+                <data_administracion>15-02-2023</data_administracion>
+                <data_proxima_administracion>15-02-2024</data_proxima_administracion>
+            </vacuna>    
+        </vacunacion>
+        <visitas>
+            <visita id="b001">
+                <data_visita>05-06-2023</data_visita>
+                <motivo>Chequeo general</motivo>
+                <diagnostico>Salud excelente</diagnostico>
+                <tractamento>Ninguno</tractamento>
+                <alta>05-06-2023</alta>
+            </visita>
+        </visitas>
+    </mascota>
+
+    <!-- Más mascotas... -->
+</mascotas>
