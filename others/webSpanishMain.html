@@ -1,46 +1,69 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protectora d'Animals</title>
-    <link rel="stylesheet" href="webStyles.css">
+    <title>Protectora de Animales</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Protectora d'Animals</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inici</a></li>
-                <li><a href="adopta.html">Adopta</a></li>
-                <li><a href="colabora.html">Fes-te Soci/Col·labora</a></li>
-                <li><a href="histories.html">Històries d'èxit</a></li>
-            </ul>
-        </nav>
+        <div class="logo">
+            <img src="../Resources/logo.png" alt="Logo de la protectora">
+        </div>
+        <h1>Protectora de Animales</h1>
+        <p>Cuidando a nuestros amigos de cuatro patas</p>
     </header>
-
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#adopta">Adopta</a></li>
+            <li><a href="#colabora">Colabora</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
     <main>
-        <section class="presentacio">
-            <h2>Benvinguts a la nostra protectora</h2>
-            <p>
-                Som una protectora compromesa amb la cura i la protecció dels animals. 
-                Ajuda’ns a oferir una segona oportunitat als nostres amics de quatre potes!
-            </p>
-            <img src="img/protectora.jpg" alt="Animals feliços" class="imatge-principal">
+        <section id="inicio">
+            <h2>Bienvenidos</h2>
+            <p>En nuestra protectora trabajamos para cuidar y proteger a los animales que más lo necesitan. ¡Conócenos y forma parte de esta misión!</p>
         </section>
-
-        <section class="enllaços-rapids">
-            <h3>Com pots ajudar?</h3>
-            <div class="opcions">
-                <a href="adopta.html" class="botó">Adopta</a>
-                <a href="colabora.html" class="botó">Fes-te Soci</a>
-                <a href="colabora.html#donacions" class="botó">Fes una donació</a>
+        <section id="adopta">
+            <h2>Adopta</h2>
+            <p>Estos son algunos de los animales que están buscando un hogar:</p>
+            <div class="galeria">
+                <div class="animal">
+                    <img src="../Resources/perro.jpg" alt="Perro en adopción">
+                    <p><strong>Nombre:</strong> nana</p>
+                    <p><strong>Edad:</strong> 11 años</p>
+                </div>
+                <div class="animal">
+                    <img src="../Resources/gato.jpg" alt="Gato en adopción">
+                    <p><strong>Nombre:</strong> Luna</p>
+                    <p><strong>Edad:</strong> 1 año</p>
+                </div>
             </div>
         </section>
+        <section id="colabora">
+            <h2>Colabora</h2>
+            <p>Tu ayuda es esencial para seguir adelante. Puedes hacer una donación, apadrinar un animal o convertirte en voluntario.</p>
+            <button>Haz tu donación</button>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¿Tienes alguna pregunta? Escríbenos:</p>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 Protectora d'Animals. Tots els drets reservats.</p>
+        <p>&copy; 2024 Protectora de Animales. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

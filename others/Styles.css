@@ -1,4 +1,3 @@
-/* Reset de márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #FCFCFC; /* Fondo general de la página */
+    background-color: #e1e7e1;
     color: #333;
     display: flex;
     justify-content: center;
@@ -19,13 +18,13 @@ body {
 }
 
 header {
-    background-color: #4CAF50; /* Verde más suave */
+    background-color: #b2d8b3;
     color: #fff;
     text-align: center;
-    padding: 10px 20px; /* Tamaño más pequeño */
+    padding: 10px 20px;
     border-radius: 10px;
     width: 100%;
-    max-width: 600px; /* Ancho más reducido */
+    max-width: 600px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -33,16 +32,15 @@ header {
 header .logo img {
     width: 150px; 
     height: 140px;
-
 }
 
 header h1 {
-    font-size: 1.5rem; /* Tamaño más pequeño para el título */
+    font-size: 1.5rem;
     margin-bottom: 5px;
 }
 
 header p {
-    font-size: 0.9rem; /* Subtítulo más pequeño */
+    font-size: 0.9rem;
     margin-bottom: 5px;
 }
 
@@ -50,7 +48,7 @@ nav {
     background-color: #333;
     border-radius: 10px;
     width: 100%;
-    max-width: 600px; /* Ancho ajustado al tamaño del header */
+    max-width: 600px;
     margin-bottom: 20px;
 }
 
@@ -71,16 +69,16 @@ nav ul li a {
     padding: 8px 12px;
     display: block;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Transición suave */
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #4CAF50; /* Verde más suave en hover */
+    background-color: #4CAF50;
 }
 
 main {
     width: 100%;
-    max-width: 600px; /* Mantenerlo alineado con el header */
+    max-width: 600px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -117,7 +115,7 @@ main h2 {
 }
 
 button {
-    background-color: #4CAF50; /* Verde más suave */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -126,12 +124,12 @@ button {
     display: block;
     margin: 10px auto;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #388E3C; /* Verde más oscuro en hover */
-    transform: scale(1.05); /* Pequeño efecto de zoom */
+    background-color: #388E3C;
+    transform: scale(1.05);
 }
 
 form {
