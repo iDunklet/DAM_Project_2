@@ -1,131 +1,121 @@
-create database if not exists animal_shelter;
-use animal_shelter;
+CREATE DATABASE IF NOT EXISTS animal_shelter;
+USE animal_shelter;
 
-create table if not exists data_inscripcion (
-    data_inscripcio date primary key
+CREATE TABLE IF NOT EXISTS instalacions (
+    id_instalacion INT PRIMARY KEY AUTO_INCREMENT,
+    descripcion VARCHAR(255) NOT NULL,
+    es_permanent BOOLEAN NOT NULL
 );
 
-create table if not exists instalacions (
-    id_instalacion int primary key,
-    descripcion varchar(255) not null,
-    es_permanent boolean not null
+CREATE TABLE IF NOT EXISTS provincies (
+    id_provincia INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30) NOT NULL
 );
 
-create table if not exists provincies (
-    id_provincia int primary key,
-    nom varchar(30) not null
+CREATE TABLE IF NOT EXISTS poblacions (
+    id_provincia INT,
+    nom_poblacions VARCHAR(30),
+    superficie VARCHAR(50),
+    PRIMARY KEY (id_provincia, nom_poblacions),
+    FOREIGN KEY (id_provincia) REFERENCES provincies(id_provincia)
 );
 
-create table if not exists poblacions (
-    id_provincia int,
-    nom_poblacions varchar(30),
-    superficie varchar(50),
-    primary key (id_provincia, nom_poblacions),
-    foreign key (id_provincia) references provincies(id_provincia)
+CREATE TABLE IF NOT EXISTS centres (
+    id_centre INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30) NOT NULL,
+    telefon CHAR(9) NOT NULL,
+    correu VARCHAR(100) NOT NULL,
+    id_provincia INT NOT NULL,
+    nom_poblacions VARCHAR(30) NOT NULL,
+    CONSTRAINT fk_centres FOREIGN KEY (id_provincia, nom_poblacions) REFERENCES poblacions(id_provincia, nom_poblacions)
 );
 
-create table if not exists centres (
-    id_centre int primary key,
-    nom varchar(30) not null,
-    telefon char(9) not null,
-    correu varchar(100) not null,
-    id_provincia int not null,
-    nom_poblacions varchar(30) not null,
-    foreign key (id_provincia) references poblacions(id_provincia),
-    foreign key (nom_poblacions) references poblacions(nom_poblacions)
+CREATE TABLE IF NOT EXISTS tipus_donants (
+    id_tipus INT PRIMARY KEY AUTO_INCREMENT,
+    tipus VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS animals (
+    id_animal INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS donants (
+    id_donant INT PRIMARY KEY AUTO_INCREMENT,
+    correu VARCHAR(100) NOT NULL,
+    es_habitual BOOLEAN NOT NULL,
+    id_tipus INT NOT NULL,
+    FOREIGN KEY (id_tipus) REFERENCES tipus_donants(id_tipus)
+);
+
+CREATE TABLE IF NOT EXISTS socis (
+    id_donant INT PRIMARY KEY,
+    num_soci INT NOT NULL,
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant)
+);
+
+CREATE TABLE IF NOT EXISTS publics (
+    id_donant INT PRIMARY KEY,
+    entitat VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant)
+);
+
+CREATE TABLE IF NOT EXISTS privats (
+    nom VARCHAR(40) NOT NULL,
+    correu VARCHAR(100) NOT NULL,
+    te_animals BOOLEAN NOT NULL,
+    id_donant INT PRIMARY KEY,
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant)
+);
+
+CREATE TABLE IF NOT EXISTS colaborador (
+    id_donant INT PRIMARY KEY,
+    tipus_colaboracio VARCHAR(30) NOT NULL,
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant)
+);
+
+CREATE TABLE IF NOT EXISTS inscripcio (
+    data_inscripcio DATE,
+    id_donant INT,
+    id_centre INT NOT NULL,
+    data_baixa DATE NOT NULL,
+    PRIMARY KEY (data_inscripcio, id_donant),
+    FOREIGN KEY (id_donant) REFERENCES socis(id_donant),
+    FOREIGN KEY (id_centre) REFERENCES centres(id_centre)
+);
+-- relaciones
+CREATE TABLE IF NOT EXISTS relacionats (
+    id_relacionat INT,
+    id_centre INT,
+    PRIMARY KEY (id_centre, id_relacionat),
+    FOREIGN KEY (id_centre) REFERENCES centres(id_centre),
+    FOREIGN KEY (id_relacionat) REFERENCES centres(id_centre)
+);
+
+CREATE TABLE IF NOT EXISTS conte (
+    categoria VARCHAR(50) NOT NULL,
+    id_centre INT,
+    id_instalacion INT,
+    FOREIGN KEY (id_centre) REFERENCES centres(id_centre),
+    FOREIGN KEY (id_instalacion) REFERENCES instalacions(id_instalacion)
+);
+
+CREATE TABLE IF NOT EXISTS donatius (
+    data_donatius DATE,
+    id_donant INT,
+    id_centre INT,
+    quantitat INT NOT NULL,
+    PRIMARY KEY (data_donatius, id_donant, id_centre),
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant),
+    FOREIGN KEY (id_centre) REFERENCES centres(id_centre)
 );
 
 
-create table if not exists data_donatius (
-    data_donatius date primary key
-);
-
-create table if not exists tipus_donants (
-    id_tipus int primary key,
-    tipus varchar(40) not null
-);
-
-create table if not exists animals (
-    id_animal int primary key,
-    nom varchar(30) not null
-);
-
-create table if not exists donants (
-    id_donant int primary key,
-    correu varchar(100) not null,
-    es_habitual boolean not null,
-    id_tipus int not null,
-    foreign key (id_tipus) references tipus_donants(id_tipus)
-);
-
-create table if not exists socis (
-    id_donant int primary key,
-    num_soci int not null,
-    foreign key (id_donant) references donants(id_donant)
-);
-
-create table if not exists publics (
-    id_donant int primary key,
-    entitat varchar(50) not null,
-    foreign key (id_donant) references donants(id_donant)
-);
-
-create table if not exists privats (
-    nom varchar(40) not null,
-    correu varchar(100) not null,
-    te_animals boolean not null,
-    id_donant int primary key,
-    foreign key (id_donant) references donants(id_donant)
-);
-
-create table if not exists colaborador (
-    id_donant int primary key,
-    tipus_colaboracio varchar(30) not null,
-    foreign key (id_donant) references donants(id_donant)
-);
-
-create table if not exists inscripcio (
-    data_inscripcio date,
-    id_donant int,
-    id_centre int not null,
-    primary key (data_inscripcio, id_donant),
-    foreign key (data_inscripcio) references data_inscripcion(data_inscripcio),
-    foreign key (id_donant) references socis(id_donant),
-    foreign key (id_centre) references centres(id_centre)
-);
-
-create table if not exists relacionats (
-    id_relacionat int,
-    id_centre int,
-    primary key (id_centre, id_relacionat),
-    foreign key (id_centre) references centres(id_centre),
-    foreign key (id_relacionat) references centres(id_centre)
-);
-
-create table if not exists conte (
-    categoria varchar(50) not null,
-    id_centre int,
-    id_instalacion int,
-    foreign key (id_centre) references centres(id_centre),
-    foreign key (id_instalacion) references instalacions(id_instalacion)
-);
-
-create table if not exists donatius (
-    data_donatius date,
-    id_donant int,
-    id_centre int,
-    quantitat int not null,
-    primary key (data_donatius, id_donant, id_centre),
-    foreign key (data_donatius) references data_donatius(data_donatius),
-    foreign key (id_donant) references donants(id_donant),
-    foreign key (id_centre) references centres(id_centre)
-);
-
-create table if not exists donatiu_animal (
-    quantitat int not null,
-    id_donant int,
-    id_animal int,
-    primary key (id_donant, id_animal),
-    foreign key (id_donant) references donants(id_donant),
-    foreign key (id_animal) references animals(id_animal)
+CREATE TABLE IF NOT EXISTS donatiu_animal (
+    quantitat INT NOT NULL,
+    id_donant INT,
+    id_animal INT,
+    PRIMARY KEY (id_donant, id_animal),
+    FOREIGN KEY (id_donant) REFERENCES donants(id_donant),
+    FOREIGN KEY (id_animal) REFERENCES animals(id_animal)
 );
