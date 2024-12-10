@@ -1,0 +1,39 @@
+<!ELEMENT mascotas (mascota+)>
+<!ELEMENT mascota (nombre, ficha_veterinario, vacunacion, visitas)>
+<!ATTLIST mascota id ID #REQUIRED>
+
+
+<!ELEMENT ficha_veterinario (animal, proprietario?)>
+    
+    <!ELEMENT animal (nombre, xip, data_nacimento, pedigree, peso, color, foto)>
+    <!ATTLIST animal sexo (M|F) #REQUIRED
+    tipo_de_pelo (curt|llarg|arrissat) #REQUIRED>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT xip (#PCDATA)>
+    <!ELEMENT data_nacimento (#PCDATA)>
+    <!ELEMENT pedigree (#PCDATA)>
+    <!ELEMENT peso (#PCDATA)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT foto (#PCDATA)>
+        
+    <!ELEMENT proprietario (nombre_proprietario, cognom, direccion, email, telefon)?>
+    <!ELEMENT nombre_proprietario (#PCDATA)>
+    <!ELEMENT cognom (#PCDATA)>
+    <!ELEMENT direccion (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT telefon (#PCDATA)>
+
+<!ELEMENT vacunacion (vacuna?)>
+<!ELEMENT vacuna (nombre_vacuna, data_administracion, data_proxima_administracion?)>
+    <!ELEMENT nombre_vacuna (#PCDATA)>
+    <!ELEMENT data_administracion (#PCDATA)>
+    <!ELEMENT data_proxima_administracion (#PCDATA)>
+
+<!ELEMENT visitas (visita+)>
+<!ATTLIST visita id ID #REQUIRED>
+<!ELEMENT visita (data_visita, motivo, diagnostico, tractamento, alta)>
+    <!ELEMENT data_visita (#PCDATA)>
+    <!ELEMENT motivo (#PCDATA)>
+    <!ELEMENT diagnostico (#PCDATA)>
+    <!ELEMENT tractamento (#PCDATA)>
+    <!ELEMENT alta (#PCDATA)>
