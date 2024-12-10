@@ -1,0 +1,19 @@
+What is the name of the world’s smallest mammal by weight?;Bat;Shrew;Hedgehog
+Which bird has the longest migration route?;Eagle;Swan;Arctic Tern
+What animal has the longest gestation period?;Whale;Elephant;Shark
+What animal is known to have three hearts?;Shark;Octopus;Whale
+Which species of whale is the largest known to exist?;Beluga Whale;Orca;Blue Whale
+What is the only bird that can fly backward?;Hummingbird;Sparrow;Pigeon
+What is the largest species of the snake?;King Cobra;Pythons;Reticulated Python
+What animal has the strongest bite force?;Crocodile;Lion;Jaguar
+Which marine animal has no brain and no heart?;Shark;Jellyfish;Octopus
+What is the primary food of an Arctic fox?;Seaweed;Fish;Small mammals
+Which animal can survive without its head for several days?;Cockroach;Ant;Moth
+Which animal has the longest migration journey of any mammal?;Elephant;Bat;Gray Whale
+What animal’s blood is blue?;Shark;Octopus;Squid
+What is the only mammal capable of true flight?;Bat;Flying Squirrel;Flying Fish
+What animal can lift an object 50 times its body weight?;Ant;Elephant;Beetle
+What animal is known for producing ink when threatened?;Octopus;Squid;Cuttlefish
+Which animal has the longest known lifespan?;Whale;Elephant;Bowhead Whale
+What is the primary food of a great white shark?;Seals;Fish;Whales
+What animal can live for years without eating anything?;Bat;Snake;Tortoise

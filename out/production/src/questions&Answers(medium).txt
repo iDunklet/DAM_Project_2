@@ -1,0 +1,19 @@
+What is the largest species of penguin?;King Penguin;Adelie Penguin;Emperor Penguin
+Which animal is known for having a hump on its back?;Giraffe;Camel;Elephant
+What is the main diet of a panda?;Insects;Birds;Bamboo
+Which animal is known for living in a hive?;Ant;Bee;Wasp
+Which animal is the fastest marine animal?;Shark;Whale;Sailfish
+What animal is known for its black and white fur?;Koala;Giraffe;Panda
+Which species of bear lives in the Arctic?;Grizzly Bear;Black Bear;Polar Bear
+Which animal has a unique, long, prehensile tongue to reach tree sap?;Snake;Koala;Aardvark
+What is the natural habitat of a kangaroo?;Forest;Desert;Grassland
+What is the largest species of cat?;Lion;Leopard;Siberian Tiger
+Which bird migrates over long distances from North America to South America?;Peacock;Eagle;Swallow
+Which animal has the longest lifespan?;Elephant;Whale;Tortoise
+What is the most intelligent species of dolphin?;Bottlenose Dolphin;Orca;Beluga Whale
+Which mammal is known for hibernating during the winter?;Squirrel;Bat;Bear
+What animal is famous for its long migration to lay eggs?;Seahorse;Salmon;Turtle
+Which type of animal is a komodo dragon?;Snake;Lizard;Crocodile
+What is the primary diet of a giraffe?;Grass;Insects;Leaves
+Which animal uses echolocation to navigate?;Bat;Dolphin;Whale
+What is the primary diet of a lion?;Grass;Berries;Meat
