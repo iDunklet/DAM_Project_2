@@ -1,10 +1,19 @@
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        String fileNameEasy = "../Resources/questions&Answers(easy)";
+        String fileNameMedium = "../Resources/questions&Answers(medium)";
+        String fileNameHard = "../Resources/questions&Answers(hard)";
 
         int score = 0;
         String name = nameQuestion(sc);
@@ -13,16 +22,36 @@ public class Main {
         jump();
         String dificulty = difficultyQuestion(sc);
         jump();
+        loadQuestions(quantity, dificulty, fileNameEasy, fileNameMedium, fileNameHard);
         String quizz = quizzQuestion(sc, quantity, dificulty, name, score);
     }
-    public static loadQuestions(String file, String questionArray){
+
+    private static void loadQuestions(int quantity, String dificulty, String filenameEasy, String filenameMedium, String filenameHard) {
+        switch (dificulty) {
+            case "easy":
+                try {
+                    BufferedReader br = new BufferedReader(new FileReader(filenameEasy));
+                    ArrayList<Question> questions = new ArrayList<String>();
+                    String[] question;
+                    String line;
+                    while ((line = br.readLine()) != null) {}
+                        question = line.split(";");
+                        questions.add(new String(question[0], question[1], question[2], question[3]));
+
+
+
+
+                } catch (IOException e) {
+                    System.out.println("File not found: " + filenameEasy);
+                }
+        }
 
 
     }
+
     private static String quizzQuestion(Scanner sc, int quantity, String dificulty, String name, int score) {
         switch(dificulty){
             case "easy":
-                File file = new File("questions&Answers(easy)");
 
 
             case "medium":
