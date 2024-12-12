@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String fileNameEasy = "../Resources/questions&Answers(easy)";
-        String fileNameMedium = "../Resources/questions&Answers(medium)";
-        String fileNameHard = "../Resources/questions&Answers(hard)";
+        String fileNameEasy = "src/Resources/questions&Answers(easy)";
+        String fileNameMedium = "src/Resources/questions&Answers(medium)";
+        String fileNameHard = "src/Resources/questions&Answers(hard)";
 
         int score = 0;
         String name = nameQuestion(sc);
@@ -22,47 +23,93 @@ public class Main {
         jump();
         String dificulty = difficultyQuestion(sc);
         jump();
-        loadQuestions(quantity, dificulty, fileNameEasy, fileNameMedium, fileNameHard);
-        String quizz = quizzQuestion(sc, quantity, dificulty, name, score);
-    }
+        int[] RandomNumbers = new int[quantity];
 
-    private static void loadQuestions(int quantity, String dificulty, String filenameEasy, String filenameMedium, String filenameHard) {
-        switch (dificulty) {
+        RandomNumber(quantity, RandomNumbers);
+        switch (dificulty){
             case "easy":
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(filenameEasy));
-                    ArrayList<Question> questions = new ArrayList<String>();
-                    String[] question;
-                    String line;
-                    while ((line = br.readLine()) != null) {}
-                        question = line.split(";");
-                        questions.add(new String(question[0], question[1], question[2], question[3]));
-
-
-
-
-                } catch (IOException e) {
-                    System.out.println("File not found: " + filenameEasy);
-                }
-        }
-
-
-    }
-
-    private static String quizzQuestion(Scanner sc, int quantity, String dificulty, String name, int score) {
-        switch(dificulty){
-            case "easy":
-
-
+                String[] questionsE = questionEasy(fileNameEasy);
+                break;
             case "medium":
-
-
+                String[] questionsM = questionMedium(fileNameMedium);
+                break;
             case "hard":
-
-
+                String[] questionsH = questionHard(fileNameHard);
+                break;
         }
 
+    }
 
+    private static String[] questionEasy( String filenameEasy) {
+        String[] questions = new String[20];
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(filenameEasy));
+                String line;
+                int index = 0;
+                while ((line = br.readLine()) != null && index < 20) {
+                    String[] question = line.split(";");
+                    if (question.length == 4) {
+                        questions[index] = "Pregunta: " + question[0] + "\nRespuestas: [" + question[1] + ", " + question[2] + ", " + question[3] + "]";
+                        index++;
+                    } else {
+                        System.out.println("Error: línea no válida en el archivo: " + line);
+                    }
+                }
+                br.close();
+            } catch (IOException e) {
+                System.out.println("File not found: " + filenameEasy);
+            }
+            return questions;
+    }
+    private static String[] questionMedium(String filenameMedium) {
+        String[] questions = new String[20];
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filenameMedium));
+            String line;
+            int index = 0;
+            while ((line = br.readLine()) != null && index < 20) {
+                String[] question = line.split(";");
+                if (question.length == 4) {
+                    questions[index] = "Pregunta: " + question[0] + "\nRespuestas: [" + question[1] + ", " + question[2] + ", " + question[3] + "]";
+                    index++;
+                } else {
+                    System.out.println("Error: línea no válida en el archivo: " + line);
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("File not found: " + filenameMedium);
+        }
+        return questions;
+    }
+    private static String[] questionHard(String filenameHard) {
+        String[] questions = new String[20];
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filenameHard));
+            String line;
+            int index = 0;
+            while ((line = br.readLine()) != null && index < 20) {
+                String[] question = line.split(";");
+                if (question.length == 4) {
+                    questions[index] = "Pregunta: " + question[0] + "\nRespuestas: [" + question[1] + ", " + question[2] + ", " + question[3] + "]";
+                    index++;
+                } else {
+                    System.out.println("Error: línea no válida en el archivo: " + line);
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("File not found: " + filenameHard);
+        }
+        return questions;
+    }
+
+
+    public static void RandomNumber(int quantity, int[] RandomNumbers){
+        Random random = new Random();
+        for (int i = 0; i < quantity; i++) {
+            RandomNumbers[i] = random.nextInt(20);
+        }
     }
 
     public static void jump() {
