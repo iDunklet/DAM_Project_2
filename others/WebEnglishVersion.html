@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Shelter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Resources/logo.png" alt="Shelter Logo">
+        </div>
+        <h1>Animal Shelter</h1>
+        <p>Caring for our four-legged friends</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#adopt">Adopt</a></li>
+            <li><a href="#help">Help Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Welcome</h2>
+            <p>At our shelter, we work to care for and protect the animals that need it the most. Get to know us and join this mission!</p>
+        </section>
+        <section id="adopt">
+            <h2>Adopt</h2>
+            <p>Here are some of the animals looking for a home:</p>
+            <div class="galeria">
+                <div class="animal">
+                    <img src="../Resources/perro.jpg" alt="Dog available for adoption">
+                    <p><strong>Name:</strong> Nana</p>
+                    <p><strong>Age:</strong> 6 years</p>
+                </div>
+                <div class="animal">
+                    <img src="../Resources/gato.jpg" alt="Cat available for adoption">
+                    <p><strong>Name:</strong> Luna</p>
+                    <p><strong>Age:</strong> 1 year</p>
+                </div>
+            </div>
+        </section>
+        <section id="help">
+            <h2>Help Us</h2>
+            <p>Your support is essential to keep going. You can make a donation, sponsor an animal, or become a volunteer.</p>
+            <button>Make a Donation</button>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Do you have any questions? Write to us:</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Animal Shelter. All rights reserved.</p>
+    </footer>
+</body>
+</html>

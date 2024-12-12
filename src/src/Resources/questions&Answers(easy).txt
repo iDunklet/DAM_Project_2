@@ -1,20 +1,20 @@
-What is the largest mammal on Earth?;Elephant;Lion;Blue Whale
-Which animal is known as "man's best friend"?;Cat;Rabbit;Dog
-What is the fastest land animal?;Elephant;Lion;Cheetah
-What color is a polar bear's skin?;Black;White;Pink
-Which animal is famous for its ability to spin webs?;Ant;Dragonfly;Spider
+What is the largest land animal?;Dog;Horse;Elephant
+Which animal is known for its hump(s)?;Deer;Horse;Camel
+What animal is commonly known as "man's best friend"?;Cat;Fish;Dog
+Which bird is known for its ability to mimic human speech?;Pigeon;Sparrow;Parrot
+What do pandas primarily eat?;Fish;Berries;Bamboo
+What is the fastest land animal?;Horse;Lion;Cheetah
 What type of animal is a frog?;Mammal;Bird;Amphibian
-Which bird is known for its colorful tail feathers?;Eagle;Penguin;Peacock
-What animal is known for having a long neck and spots?;Zebra;Giraffe;Elephant
-Which animal is the symbol of wisdom?;Fox;Cat;Owl
-What animal is known for playing dead to escape predators?;Rabbit;Kangaroo;Opossum
-What is the largest species of shark?;Hammerhead Shark;Whale Shark;Great White Shark
-Which insect makes honey?;Fly;Beetle;Bee
-What animal can live both on land and in water?;Dog;Horse;Frog
-Which animal has a trunk?;Lion;Tiger;Elephant
-What animal can change its color for camouflage?;Cat;Dog;Chameleon
-What is the only mammal capable of flight?;Penguin;Bat;Eagle
-Which animal is the tallest in the world?;Elephant;Giraffe;Kangaroo
-What animal is known for its stripes?;Tiger;Cheetah;Zebra
-Which animal can regenerate its limbs?;Dog;Cat;Starfish
-What type of animal is a turtle?;Amphibian;Fish;Reptile
+Which sea creature has eight legs?;Fish;Starfish;Octopus
+What is the baby of a cow called?;Puppy;Kid;Calf
+Which animal is known for its black-and-white stripes?;Horse;Antelope;Zebra
+What do bees collect from flowers?;Water;Bark;Nectar
+Which animal is known as the king of the jungle?;Elephant;Cheetah;Lion
+Which bird is famous for its colorful plumage?;Sparrow;Owl;Peacock
+What is the main diet of a carnivorous animal?;Grass;Fruits;Meat
+Which ocean animal is the largest in the world?;Dolphin;Shark;Blue Whale
+What type of animal is a kangaroo?;Reptile;Fish;Marsupial
+Which animal is known for producing milk for humans?;Horse;Pig;Cow
+What is the name of the tallest animal in the world?;Elephant;Horse;Giraffe
+What is the primary purpose of a cat's whiskers?;For sound;For swimming;For balance
+Which bird is known for delivering babies in folklore?;Sparrow;Eagle;Stork
