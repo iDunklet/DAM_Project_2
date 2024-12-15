@@ -1,19 +1,20 @@
-What is the largest species of penguin?;King Penguin;Adelie Penguin;Emperor Penguin
-Which animal is known for having a hump on its back?;Giraffe;Camel;Elephant
-What is the main diet of a panda?;Insects;Birds;Bamboo
-Which animal is known for living in a hive?;Ant;Bee;Wasp
-Which animal is the fastest marine animal?;Shark;Whale;Sailfish
-What animal is known for its black and white fur?;Koala;Giraffe;Panda
-Which species of bear lives in the Arctic?;Grizzly Bear;Black Bear;Polar Bear
-Which animal has a unique, long, prehensile tongue to reach tree sap?;Snake;Koala;Aardvark
-What is the natural habitat of a kangaroo?;Forest;Desert;Grassland
-What is the largest species of cat?;Lion;Leopard;Siberian Tiger
-Which bird migrates over long distances from North America to South America?;Peacock;Eagle;Swallow
-Which animal has the longest lifespan?;Elephant;Whale;Tortoise
-What is the most intelligent species of dolphin?;Bottlenose Dolphin;Orca;Beluga Whale
-Which mammal is known for hibernating during the winter?;Squirrel;Bat;Bear
-What animal is famous for its long migration to lay eggs?;Seahorse;Salmon;Turtle
-Which type of animal is a komodo dragon?;Snake;Lizard;Crocodile
-What is the primary diet of a giraffe?;Grass;Insects;Leaves
-Which animal uses echolocation to navigate?;Bat;Dolphin;Whale
-What is the primary diet of a lion?;Grass;Berries;Meat
+Which reptile can detach its tail to escape predators?;Snake;Frog;Lizard
+What is the primary function of gills in fish?;Eating;Sleeping;Breathing underwater
+Which mammal is capable of true flight?;Penguin;Chicken;Bat
+What is a group of lions called?;Herd;Pack;Pride
+Which animal is known to have a memory that lasts for years?;Dog;Monkey;Elephant
+What is the primary diet of herbivores?;Fish;Insects;Plants
+Which animal changes its color for camouflage?;Frog;Snake;Chameleon
+What is the fastest bird in the world?;Owl;Eagle;Peregrine Falcon
+What is the term for animals that are active at night?;Diurnal;Marine;Nocturnal
+Which bird is known for its incredible migration journeys?;Crow;Sparrow;Arctic Tern
+What type of animal is a platypus?;Bird;Fish;Mammal
+Which animal uses echolocation to navigate?;Lion;Elephant;Dolphin
+Which creature is known for having multiple hearts?;Dog;Elephant;Octopus
+Which animal can regrow lost limbs?;Bird;Mammal;Starfish
+What is the main diet of a panda?;Meat;Fruits;Bamboo
+Which animal is known for its extremely long tongue?;Dog;Cat;Chameleon
+What do penguins use to stay warm?;Shells;Sand;Feathers
+Which animal sleeps standing up?;Dog;Cat;Horse
+Which bird is famous for its ability to "dance"?;Crow;Pigeon;Bird of Paradise
+What do crocodiles do to cool down?;Run;Sleep;Open their mouths

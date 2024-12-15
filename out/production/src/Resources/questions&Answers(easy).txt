@@ -1,0 +1,20 @@
+What is the largest land animal?;Dog;Horse;Elephant
+Which animal is known for its hump(s)?;Deer;Horse;Camel
+What animal is commonly known as "man's best friend"?;Cat;Fish;Dog
+Which bird is known for its ability to mimic human speech?;Pigeon;Sparrow;Parrot
+What do pandas primarily eat?;Fish;Berries;Bamboo
+What is the fastest land animal?;Horse;Lion;Cheetah
+What type of animal is a frog?;Mammal;Bird;Amphibian
+Which sea creature has eight legs?;Fish;Starfish;Octopus
+What is the baby of a cow called?;Puppy;Kid;Calf
+Which animal is known for its black-and-white stripes?;Horse;Antelope;Zebra
+What do bees collect from flowers?;Water;Bark;Nectar
+Which animal is known as the king of the jungle?;Elephant;Cheetah;Lion
+Which bird is famous for its colorful plumage?;Sparrow;Owl;Peacock
+What is the main diet of a carnivorous animal?;Grass;Fruits;Meat
+Which ocean animal is the largest in the world?;Dolphin;Shark;Blue Whale
+What type of animal is a kangaroo?;Reptile;Fish;Marsupial
+Which animal is known for producing milk for humans?;Horse;Pig;Cow
+What is the name of the tallest animal in the world?;Elephant;Horse;Giraffe
+What is the primary purpose of a cat's whiskers?;For sound;For swimming;For balance
+Which bird is known for delivering babies in folklore?;Sparrow;Eagle;Stork
