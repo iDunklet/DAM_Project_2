@@ -93,7 +93,7 @@ public class Main {
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    private static String[] loadQuestions(String fileName) {
+    public static String[] loadQuestions(String fileName) {
         String[] questions = new String[20];
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -107,7 +107,7 @@ public class Main {
         return questions;
     }
 
-    private static int[] generateRandomNumbers(int quantity) {
+    public static int[] generateRandomNumbers(int quantity) {
         Random random = new Random();
         int[] randomNumbers = new int[quantity];
         for (int i = 0; i < quantity; i++) {
@@ -116,7 +116,7 @@ public class Main {
         return randomNumbers;
     }
 
-    private static void shuffleArray(int[] array) {
+    public static void shuffleArray(int[] array) {
         Random random = new Random();
         for (int i = array.length - 1; i > 0; i--) {
             int j = random.nextInt(i + 1);
@@ -126,7 +126,7 @@ public class Main {
         }
     }
 
-    private static String getUserAnswer(Scanner sc) {
+    public static String getUserAnswer(Scanner sc) {
         String answer;
         while (true) {
             System.out.println("Your answer (A/B/C): ");
@@ -140,7 +140,7 @@ public class Main {
         return answer;
     }
 
-    private static void showFinalMessage(int score, int total) {
+    public static void showFinalMessage(int score, int total) {
         double percentage = ((double) score / total) * 100;
         String message;
 
@@ -157,7 +157,7 @@ public class Main {
         System.out.println(message);
     }
 
-    private static void saveStatistics(String name, String difficulty, int correct, int incorrect) {
+    public static void saveStatistics(String name, String difficulty, int correct, int incorrect) {
         String fileName = "statistics_" + difficulty + ".txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))) {
             bw.write("Name: " + name + ", Date: " + new Date() + ", Correct: " + correct + ", Incorrect: " + incorrect);
@@ -188,7 +188,7 @@ public class Main {
         return difficulty;
     }
 
-    private static int quantityQuestion(Scanner sc) {
+    public static int quantityQuestion(Scanner sc) {
         System.out.println("How many questions would you like to answer? (Minimum: 5)");
         int quantity;
         while (true) {
@@ -206,7 +206,7 @@ public class Main {
         return quantity;
     }
 
-    private static String nameQuestion(Scanner sc) {
+    public static String nameQuestion(Scanner sc) {
         System.out.println("Welcome to the quiz!");
         System.out.println("I'm glad to see you here. What is your name?");
         String name = sc.nextLine().trim();
