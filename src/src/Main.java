@@ -5,6 +5,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int correctAnswers = 0;
+        int incorrectAnswers = 0;
+
+
 
         String fileNameEasy = "src/src/Resources/questions&Answers(easy).txt";
         String fileNameMedium = "src/src/Resources/questions&Answers(medium).txt";
@@ -37,8 +41,6 @@ public class Main {
             }
 
             int[] randomNumbers = generateRandomNumbers(quantity);
-            int correctAnswers = 0;
-            int incorrectAnswers = 0;
 
             for (int i = 0; i < quantity; i++) {
                 String question = questions[randomNumbers[i]];
@@ -63,7 +65,6 @@ public class Main {
                     }
                 }
 
-                // Display shuffled answers
                 for (int j = 0; j < shuffledOptions.length; j++) {
                     System.out.println((char) ('A' + j) + ") " + shuffledOptions[j]);
                 }
@@ -98,7 +99,7 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             int index = 0;
-            while ((line = br.readLine()) != null && index < 20) {
+            while ((line = br.readLine()) != null) {
                 questions[index++] = line;
             }
         } catch (IOException e) {
@@ -174,7 +175,7 @@ public class Main {
     }
 
     public static String difficultyQuestion(Scanner sc) {
-        String difficulty = "";
+        String difficulty;
         while (true) {
             System.out.println("Choose the difficulty: Easy, Medium, or Hard");
             difficulty = sc.nextLine().trim().toLowerCase();
@@ -193,7 +194,7 @@ public class Main {
         int quantity;
         while (true) {
             try {
-                quantity = Integer.parseInt(sc.nextLine().trim());
+                quantity = sc.nextInt();
                 if (quantity >= 5) {
                     break;
                 } else {
