@@ -5,96 +5,125 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int correctAnswers = 0;
+        int score = 0;
         int incorrectAnswers = 0;
-
-
 
         String fileNameEasy = "src/src/Resources/questions&Answers(easy).txt";
         String fileNameMedium = "src/src/Resources/questions&Answers(medium).txt";
         String fileNameHard = "src/src/Resources/questions&Answers(hard).txt";
 
-        boolean playAgain;
+        Boolean playAgain = false;
 
         do {
-            int score = 0;
-            String name = nameQuestion(sc);
-            jump();
-            int quantity = quantityQuestion(sc);
-            jump();
-            String difficulty = difficultyQuestion(sc);
-            jump();
+            String name = askNameUserQuestion(sc);
+            wait2SecondsThanJump50Lines();
+            int quantity = askUserQuantityQuestion(sc);
+            wait2SecondsThanJump50Lines();
+            String difficulty = askUSerDifficultyQuestion(sc);
+            wait2SecondsThanJump50Lines();
 
-            String[] questions;
-            switch (difficulty) {
-                case "easy":
-                    questions = loadQuestions(fileNameEasy);
-                    break;
-                case "medium":
-                    questions = loadQuestions(fileNameMedium);
-                    break;
-                case "hard":
-                    questions = loadQuestions(fileNameHard);
-                    break;
-                default:
-                    questions = new String[0];
-            }
+            String [] questions = chooseDificultyAndloadQuestions(difficulty,fileNameEasy, fileNameMedium, fileNameHard);
 
-            int[] randomNumbers = generateRandomNumbers(quantity);
+            int[] randomNumbers = generateRandomNumbersForRandomQuestions(quantity);
 
             for (int i = 0; i < quantity; i++) {
-                String question = questions[randomNumbers[i]];
-                String[] parts = question.split(";", -1);
-                System.out.println("Question " + (i + 1) + ": " + parts[0]);
 
-
+                String[] parts = separateAndBuidlQuestion(questions,randomNumbers, i);
                 String[] options = {parts[1], parts[2], parts[3]};
-                String correctAnswer = "C";
-                int correctIndex = 2;
-
 
                 int[] indices = {0, 1, 2};
-                shuffleArray(indices);
 
-                String[] shuffledOptions = new String[3];
-                for (int j = 0; j < 3; j++) {
-                    shuffledOptions[j] = options[indices[j]];
-                    if (indices[j] == 2) {
-                        correctIndex = j;
-                        correctAnswer = String.valueOf((char) ('A' + j));
-                    }
-                }
+                CreateShuffleArrayNumbers(indices);
 
-                for (int j = 0; j < shuffledOptions.length; j++) {
-                    System.out.println((char) ('A' + j) + ") " + shuffledOptions[j]);
-                }
+                String[] result = shuffleOptionsAndDetermineCorrectAnswer(options, indices);
+                String correctAnswer = result[0];
+                String[] shuffledOptions = {result[1], result[2], result[3]};
 
-                String userAnswer = getUserAnswer(sc);
+                printShuffledOptions(shuffledOptions);
 
-                if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-                    System.out.println("Correct!");
-                    score++;
-                    correctAnswers++;
-                } else {
-                    System.out.println("Incorrect. The correct answer was " + correctAnswer);
-                    incorrectAnswers++;
-                }
+                String userAnswer = askUserForAnswerThanReturnAnswer(sc);
 
-                jump();
+                int[] scoreIncorrectAnswer = checkUserAnswer(score, incorrectAnswers, userAnswer, correctAnswer);
+                score = scoreIncorrectAnswer[0];
+                incorrectAnswers = scoreIncorrectAnswer[1];
+
+                wait2SecondsThanJump50Lines();
             }
 
             showFinalMessage(score, quantity);
-            saveStatistics(name, difficulty, correctAnswers, incorrectAnswers);
+            saveStatistics(name, difficulty, score, incorrectAnswers);
 
-            System.out.println("Do you want to play again? (yes/no)");
-            playAgain = sc.nextLine().trim().equalsIgnoreCase("yes");
+            playAgain = askUserPlayAgain(sc, playAgain);
 
-        } while (playAgain);
+        } while (!playAgain);
 
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    public static String[] loadQuestions(String fileName) {
+    private static Boolean askUserPlayAgain(Scanner sc,Boolean playAgain) {
+        System.out.println("Do you want to play again? (yes/no)");
+        playAgain = sc.nextLine().trim().equalsIgnoreCase("yes");
+        return playAgain;
+    }
+
+    private static int[] checkUserAnswer(int score, int incorrectAnswers, String userAnswer, String correctAnswer) {
+        if (userAnswer.equalsIgnoreCase(correctAnswer)) {
+            System.out.println("Correct!");
+            score++;
+        } else {
+            System.out.println("Incorrect. The correct answer was " + correctAnswer);
+            incorrectAnswers++;
+        }
+        return new int[]{score, incorrectAnswers};
+    }
+
+
+    public static void printShuffledOptions(String[] shuffledOptions) {
+        for (int j = 0; j < shuffledOptions.length; j++) {
+            System.out.println((char) ('A' + j) + ") " + shuffledOptions[j]);
+        }
+    }
+
+    private static String[] shuffleOptionsAndDetermineCorrectAnswer(String[] options, int[] indices) {
+        String[] shuffledOptions = new String[3];
+        String correctAnswer = "C";
+        int correctIndex = 2;
+
+        for (int j = 0; j < 3; j++) {
+            shuffledOptions[j] = options[indices[j]];
+            if (indices[j] == 2) {
+                correctIndex = j;
+                correctAnswer = String.valueOf((char) ('A' + j));
+            }
+        }
+        return new String[] {correctAnswer, shuffledOptions[0], shuffledOptions[1], shuffledOptions[2]};
+    }
+    private static String[] separateAndBuidlQuestion(String[] questions,int[] randomNumbers, int i) {
+        String question = questions[randomNumbers[i]];
+        String[] parts = question.split(";", -1);
+        System.out.println("Question " + (i + 1) + ": " + parts[0]);
+        return parts;
+    }
+
+    private static String[] chooseDificultyAndloadQuestions(String difficulty, String fileNameEasy, String fileNameMedium, String fileNameHard) {
+        String[] questions;
+        switch (difficulty) {
+            case "easy":
+                questions = loadStringQuestions(fileNameEasy);
+                break;
+            case "medium":
+                questions = loadStringQuestions(fileNameMedium);
+                break;
+            case "hard":
+                questions = loadStringQuestions(fileNameHard);
+                break;
+            default:
+                questions = new String[0];
+        }
+        return questions;
+    }
+
+    public static String[] loadStringQuestions(String fileName) {
         String[] questions = new String[20];
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -108,16 +137,25 @@ public class Main {
         return questions;
     }
 
-    public static int[] generateRandomNumbers(int quantity) {
+    public static int[] generateRandomNumbersForRandomQuestions(int quantity) {
         Random random = new Random();
-        int[] randomNumbers = new int[quantity];
-        for (int i = 0; i < quantity; i++) {
-            randomNumbers[i] = random.nextInt(20);
+        Set<Integer> uniqueNumbers = new HashSet<>();
+
+        while (uniqueNumbers.size() < quantity) {
+            int randomNumber = random.nextInt(20);
+            uniqueNumbers.add(randomNumber);
         }
+
+        int[] randomNumbers = new int[quantity];
+        int index = 0;
+        for (int num : uniqueNumbers) {
+            randomNumbers[index++] = num;
+        }
+
         return randomNumbers;
     }
 
-    public static void shuffleArray(int[] array) {
+    public static void CreateShuffleArrayNumbers(int[] array) {
         Random random = new Random();
         for (int i = array.length - 1; i > 0; i--) {
             int j = random.nextInt(i + 1);
@@ -127,17 +165,18 @@ public class Main {
         }
     }
 
-    public static String getUserAnswer(Scanner sc) {
+    public static String askUserForAnswerThanReturnAnswer(Scanner sc) {
         String answer;
-        while (true) {
+        Boolean exit = false;
+        do {
             System.out.println("Your answer (A/B/C): ");
             answer = sc.nextLine().trim().toUpperCase();
             if (answer.equals("A") || answer.equals("B") || answer.equals("C")) {
-                break;
+                exit = true;
             } else {
                 System.out.println("Invalid input. Please enter A, B, or C.");
             }
-        }
+        }while(!exit);
         return answer;
     }
 
@@ -168,46 +207,51 @@ public class Main {
         }
     }
 
-    public static void jump() {
+    public static void wait2SecondsThanJump50Lines() {
+        try{Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
 
-    public static String difficultyQuestion(Scanner sc) {
+    public static String askUSerDifficultyQuestion(Scanner sc) {
         String difficulty;
-        while (true) {
+        Boolean exit = false;
+        sc.nextLine();
+        do {
             System.out.println("Choose the difficulty: Easy, Medium, or Hard");
             difficulty = sc.nextLine().trim().toLowerCase();
 
             if (difficulty.equals("easy") || difficulty.equals("medium") || difficulty.equals("hard")) {
-                break;
+                exit = true;
             } else {
                 System.out.println("Invalid choice. Please choose Easy, Medium, or Hard.");
             }
-        }
+        } while(!exit);
         return difficulty;
     }
 
-    public static int quantityQuestion(Scanner sc) {
+    public static int askUserQuantityQuestion(Scanner sc) {
         System.out.println("How many questions would you like to answer? (Minimum: 5)");
-        int quantity;
-        while (true) {
+        int quantity = 0;
+        Boolean exit = false;
+        do {
             try {
                 quantity = sc.nextInt();
-                if (quantity >= 5) {
-                    break;
+                if (quantity >= 5 && quantity <= 20) {
+                    exit = true;
                 } else {
                     System.out.println("Please enter a number 5 or greater.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
             }
-        }
+        } while(!exit);
+        
         return quantity;
     }
 
-    public static String nameQuestion(Scanner sc) {
+    public static String askNameUserQuestion(Scanner sc) {
         System.out.println("Welcome to the quiz!");
         System.out.println("I'm glad to see you here. What is your name?");
         String name = sc.nextLine().trim();
