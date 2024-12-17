@@ -12,7 +12,7 @@ public class Main {
         String fileNameMedium = "src/src/Resources/questions&Answers(medium).txt";
         String fileNameHard = "src/src/Resources/questions&Answers(hard).txt";
 
-        Boolean playAgain = false;
+        boolean playAgain;
 
         do {
             String name = askNameUserQuestion(sc);
@@ -53,17 +53,16 @@ public class Main {
             showFinalMessage(score, quantity);
             saveStatistics(name, difficulty, score, incorrectAnswers);
 
-            playAgain = askUserPlayAgain(sc, playAgain);
+            playAgain = askUserPlayAgain(sc);
 
         } while (!playAgain);
 
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    private static Boolean askUserPlayAgain(Scanner sc,Boolean playAgain) {
+    private static Boolean askUserPlayAgain(Scanner sc) {
         System.out.println("Do you want to play again? (yes/no)");
-        playAgain = sc.nextLine().trim().equalsIgnoreCase("yes");
-        return playAgain;
+        return sc.nextLine().trim().equalsIgnoreCase("yes");
     }
 
     private static int[] checkUserAnswer(int score, int incorrectAnswers, String userAnswer, String correctAnswer) {
@@ -87,12 +86,10 @@ public class Main {
     private static String[] shuffleOptionsAndDetermineCorrectAnswer(String[] options, int[] indices) {
         String[] shuffledOptions = new String[3];
         String correctAnswer = "C";
-        int correctIndex = 2;
 
         for (int j = 0; j < 3; j++) {
             shuffledOptions[j] = options[indices[j]];
             if (indices[j] == 2) {
-                correctIndex = j;
                 correctAnswer = String.valueOf((char) ('A' + j));
             }
         }
@@ -106,21 +103,12 @@ public class Main {
     }
 
     private static String[] chooseDificultyAndloadQuestions(String difficulty, String fileNameEasy, String fileNameMedium, String fileNameHard) {
-        String[] questions;
-        switch (difficulty) {
-            case "easy":
-                questions = loadStringQuestions(fileNameEasy);
-                break;
-            case "medium":
-                questions = loadStringQuestions(fileNameMedium);
-                break;
-            case "hard":
-                questions = loadStringQuestions(fileNameHard);
-                break;
-            default:
-                questions = new String[0];
-        }
-        return questions;
+        return switch (difficulty) {
+            case "easy" -> loadStringQuestions(fileNameEasy);
+            case "medium" -> loadStringQuestions(fileNameMedium);
+            case "hard" -> loadStringQuestions(fileNameHard);
+            default -> new String[0];
+        };
     }
 
     public static String[] loadStringQuestions(String fileName) {
@@ -167,7 +155,7 @@ public class Main {
 
     public static String askUserForAnswerThanReturnAnswer(Scanner sc) {
         String answer;
-        Boolean exit = false;
+        boolean exit = false;
         do {
             System.out.println("Your answer (A/B/C): ");
             answer = sc.nextLine().trim().toUpperCase();
@@ -216,7 +204,7 @@ public class Main {
 
     public static String askUSerDifficultyQuestion(Scanner sc) {
         String difficulty;
-        Boolean exit = false;
+        boolean exit = false;
         sc.nextLine();
         do {
             System.out.println("Choose the difficulty: Easy, Medium, or Hard");
@@ -234,7 +222,7 @@ public class Main {
     public static int askUserQuantityQuestion(Scanner sc) {
         System.out.println("How many questions would you like to answer? (Minimum: 5)");
         int quantity = 0;
-        Boolean exit = false;
+        boolean exit = false;
         do {
             try {
                 quantity = sc.nextInt();
