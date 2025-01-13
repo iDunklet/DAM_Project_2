@@ -12,7 +12,7 @@ public class Main {
         String fileNameMedium = "src/src/Resources/questions&Answers(medium).txt";
         String fileNameHard = "src/src/Resources/questions&Answers(hard).txt";
 
-        boolean playAgain;
+        boolean playAgain = false;
 
         do {
             String name = askNameUserQuestion(sc);
@@ -55,14 +55,19 @@ public class Main {
 
             playAgain = askUserPlayAgain(sc);
 
-        } while (!playAgain);
+        } while (playAgain = true);
 
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    private static Boolean askUserPlayAgain(Scanner sc) {
+    private static boolean askUserPlayAgain(Scanner sc) {
         System.out.println("Do you want to play again? (yes/no)");
-        return sc.nextLine().trim().equalsIgnoreCase("yes");
+        if (sc.equals(sc.nextLine().trim().equalsIgnoreCase("yes"))){
+            return false;}
+        else {
+            return true;
+        }
+
     }
 
     private static int[] checkUserAnswer(int score, int incorrectAnswers, String userAnswer, String correctAnswer) {
@@ -131,7 +136,7 @@ public class Main {
 
         while (uniqueNumbers.size() < quantity) {
             int randomNumber = random.nextInt(20);
-            uniqueNumbers.add(randomNumber);
+            uniqueNumbers.add(Integer.valueOf(randomNumber));
         }
 
         int[] randomNumbers = new int[quantity];
