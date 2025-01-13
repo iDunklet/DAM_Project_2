@@ -8,7 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f9;
+    background-color: #fef9f5; /* Light cream for a friendly background */
     color: #333;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-color: #6c757d;
+    background-color: #ffae42; /* Warm orange for an inviting feel */
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -46,7 +46,7 @@ header p {
 }
 
 nav {
-    background-color: #343a40;
+    background-color: #ffa500; /* Bright orange for navigation */
     border-radius: 10px;
     width: 100%;
     max-width: 900px;
@@ -74,7 +74,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #007bff;
+    background-color: #ff7f50; /* Coral color for hover */
 }
 
 main {
@@ -87,7 +87,7 @@ main {
 }
 
 main h2 {
-    color: #007bff;
+    color: #ff6347; /* Tomato red for section titles */
     margin-bottom: 10px;
     text-align: center;
 }
@@ -100,7 +100,7 @@ main h2 {
 }
 
 .animal {
-    background-color: #f9f9f9;
+    background-color: #fff3e6; /* Light peach for animal cards */
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 10px;
@@ -121,7 +121,7 @@ main h2 {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #ff6347; /* Tomato red for buttons */
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -134,7 +134,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e5533d; /* Slightly darker red for hover */
     transform: scale(1.05);
 }
 
@@ -156,7 +156,7 @@ form input, form textarea {
 }
 
 footer {
-    background-color: #343a40;
+    background-color: #ffae42; /* Warm orange for footer */
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -168,11 +168,11 @@ footer {
 
 /* Unique styling for Version B */
 body.version-b {
-    background-color: #eef5f9;
+    background-color: #f0fff4; /* Soft green tint for background */
 }
 
 header.version-b {
-    background-color: #004085;
+    background-color: #32cd32; /* Lime green for version B header */
 }
 
 header.version-b h1 {
@@ -180,17 +180,17 @@ header.version-b h1 {
 }
 
 nav.version-b ul li a:hover {
-    background-color: #28a745;
+    background-color: #20b2aa; /* Light sea green for hover */
 }
 
 main.version-b h2 {
-    color: #28a745;
+    color: #228b22; /* Forest green for section titles */
 }
 
 button.version-b {
-    background-color: #28a745;
+    background-color: #20b2aa; /* Light sea green for buttons */
 }
 
 button.version-b:hover {
-    background-color: #218838;
+    background-color: #1e90ff; /* Dodger blue for hover */
 }
