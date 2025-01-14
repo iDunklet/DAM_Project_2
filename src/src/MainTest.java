@@ -12,11 +12,11 @@ class MainTest {
 
     @Test
     void difficultyQuestion() {
+        Scanner sc = new Scanner(System.in);
         String input = "medium\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        Scanner sc = new Scanner(System.in);
-        String result = Main.askUSerDifficultyQuestion(sc);
+        String result = Main.askUSerDifficultyQuestion();
         assertEquals("medium", result);
     }
 

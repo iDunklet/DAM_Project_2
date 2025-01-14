@@ -4,7 +4,6 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int score = 0;
         int incorrectAnswers = 0;
 
@@ -15,11 +14,11 @@ public class Main {
         boolean playAgain = false;
 
         do {
-            String name = askNameUserQuestion(sc);
+            String name = askNameUserQuestion();
             wait2SecondsThanJump50Lines();
-            int quantity = askUserQuantityQuestion(sc);
+            int quantity = askUserQuantityQuestion();
             wait2SecondsThanJump50Lines();
-            String difficulty = askUSerDifficultyQuestion(sc);
+            String difficulty = askUSerDifficultyQuestion();
             wait2SecondsThanJump50Lines();
 
             String [] questions = chooseDificultyAndloadQuestions(difficulty,fileNameEasy, fileNameMedium, fileNameHard);
@@ -41,7 +40,7 @@ public class Main {
 
                 printShuffledOptions(shuffledOptions);
 
-                String userAnswer = askUserForAnswerThanReturnAnswer(sc);
+                String userAnswer = askUserForAnswerThanReturnAnswer();
 
                 int[] scoreIncorrectAnswer = checkUserAnswer(score, incorrectAnswers, userAnswer, correctAnswer);
                 score = scoreIncorrectAnswer[0];
@@ -53,18 +52,21 @@ public class Main {
             showFinalMessage(score, quantity);
             saveStatistics(name, difficulty, score, incorrectAnswers);
 
-            playAgain = askUserPlayAgain(sc);
+            playAgain = askUserPlayAgain();
 
         } while (playAgain = true);
 
         System.out.println("Thanks for playing! Goodbye!");
     }
 
-    private static boolean askUserPlayAgain(Scanner sc) {
+    private static boolean askUserPlayAgain() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Do you want to play again? (yes/no)");
         if (sc.equals(sc.nextLine().trim().equalsIgnoreCase("yes"))){
+            sc.close();
             return false;}
         else {
+            sc.close();
             return true;
         }
 
@@ -136,7 +138,8 @@ public class Main {
 
         while (uniqueNumbers.size() < quantity) {
             int randomNumber = random.nextInt(20);
-            uniqueNumbers.add(Integer.valueOf(randomNumber));
+            uniqueNumbers.add(randomNumber);
+
         }
 
         int[] randomNumbers = new int[quantity];
@@ -158,9 +161,10 @@ public class Main {
         }
     }
 
-    public static String askUserForAnswerThanReturnAnswer(Scanner sc) {
+    public static String askUserForAnswerThanReturnAnswer() {
         String answer;
         boolean exit = false;
+        Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Your answer (A/B/C): ");
             answer = sc.nextLine().trim().toUpperCase();
@@ -170,6 +174,7 @@ public class Main {
                 System.out.println("Invalid input. Please enter A, B, or C.");
             }
         }while(!exit);
+        sc.close();
         return answer;
     }
 
@@ -207,7 +212,8 @@ public class Main {
         }
     }
 
-    public static String askUSerDifficultyQuestion(Scanner sc) {
+    public static String askUSerDifficultyQuestion() {
+        Scanner sc = new Scanner(System.in);
         String difficulty;
         boolean exit = false;
         sc.nextLine();
@@ -221,10 +227,12 @@ public class Main {
                 System.out.println("Invalid choice. Please choose Easy, Medium, or Hard.");
             }
         } while(!exit);
+        sc.close();
         return difficulty;
     }
 
-    public static int askUserQuantityQuestion(Scanner sc) {
+    public static int askUserQuantityQuestion() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("How many questions would you like to answer? (Minimum: 5)");
         int quantity = 0;
         boolean exit = false;
@@ -240,17 +248,19 @@ public class Main {
                 System.out.println("Invalid input. Please enter a valid number.");
             }
         } while(!exit);
-        
+        sc.close();
         return quantity;
     }
 
-    public static String askNameUserQuestion(Scanner sc) {
+    public static String askNameUserQuestion() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the quiz!");
         System.out.println("I'm glad to see you here. What is your name?");
         String name = sc.nextLine().trim();
         System.out.println("Nice to meet you, " + name + "! Let's start our quiz.");
         System.out.println("Press Enter to continue...");
         sc.nextLine();
+        sc.close();
         return name;
     }
 }
